@@ -793,8 +793,8 @@ void Migrator::export_dir(CDir *dir, mds_rank_t dest)
     //ceph_abort();
     return;
   }
-  if (!mds->is_active()) {
-    dout(7) << "i'm not active, no exports for now" << dendl;
+  if (!mds->is_standby_replay()) {
+    dout(7) << "i'm standby replay, no exports for now" << dendl;
     return;
   }
 
